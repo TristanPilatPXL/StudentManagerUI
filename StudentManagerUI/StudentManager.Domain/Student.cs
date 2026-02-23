@@ -1,5 +1,6 @@
 ﻿namespace StudentManager.Domain
 {
+    //Het domein beschrijft wat een student is, en bevat regels die altijd moeten gelden. Hier voeren we validatie uit op voornaam en achternaam.
     public class Student
     {
         public string FirstName { get; }

@@ -18,6 +18,9 @@ namespace StudentManager.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        //In de UI gebruik je de service. Alle logica zit in andere lagen. De UI toont enkel de uitkomst en vangt fouten op.
+
+
         private readonly StudentService _service;
 
 

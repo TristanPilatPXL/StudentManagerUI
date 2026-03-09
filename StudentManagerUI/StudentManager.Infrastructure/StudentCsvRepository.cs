@@ -14,17 +14,21 @@ namespace StudentManager.Infrastructure
         private readonly List<Student> _students = new();
         public void Add(Student student) => _students.Add(student);
         public List<Student> All() => _students;
-        
+
 
 
         public void checkCreate()
         {
+            string folder = @"C:\Users\Trist\Desktop\Graduaat\C-Advanced\StudentManagerUI\StudentManagerUI\StudentManager.Infrastructure\Data";//specifieke route meegeven
+            string filePath = Path.Combine(folder, "data.txt");
 
-            if (File.Exists("data.txt"))
-                throw new InvalidOperationException("Bestand bestaat al.");
+            // Maak de Data-map aan als die nog niet bestaat
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
 
-            File.Create("data.txt");
+           
 
+            File.Create(filePath).Close();
         }
 
         public List<Student> alles()
@@ -53,12 +57,15 @@ namespace StudentManager.Infrastructure
 
         }
 
-        public void toeveogen()
+        public void add(Student student)
         {
-            string firstname;
-            Student student = new Student(firstname, "Janssens");
-
             string line = $"{student.FirstName};{student.LastName}";
+
+            // StreamWriter met append: true → overschrijft NIET
+            using (StreamWriter writer = new StreamWriter("data.csv", append: true))
+            {
+                writer.WriteLine(line);
+            }
         }
 
 

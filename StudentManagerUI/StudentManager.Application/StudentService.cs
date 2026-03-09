@@ -6,9 +6,9 @@ namespace StudentManager.Application
     //De applicationlaag bevat je use-cases. Elke methode in de service is één concreet doel of actie van de gebruiker: student toevoegen, lijst opvragen, enz.
     public class StudentService
     {
-        private readonly StudentRepository _repository;
+        private readonly StudentCsvRepository _repository;
 
-        public StudentService(StudentRepository repository)
+        public StudentService(StudentCsvRepository repository)
         {
             _repository = repository;
         }

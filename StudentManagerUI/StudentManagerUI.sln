@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager.Application", "StudentManager.Application\StudentManager.Application.csproj", "{6A30CE44-3CC8-43B5-8B59-9A37D5DF57C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager.Domain.Test", "StudentManager.Domain.Test\StudentManager.Domain.Test.csproj", "{010AB5FB-AAC5-4CCC-A757-3EE183AC8B50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager.Application.Tests", "StudentManager.Application.Tests\StudentManager.Application.Tests.csproj", "{7E023613-07D8-4C69-BBF9-77982E9449E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{6A30CE44-3CC8-43B5-8B59-9A37D5DF57C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A30CE44-3CC8-43B5-8B59-9A37D5DF57C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A30CE44-3CC8-43B5-8B59-9A37D5DF57C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{010AB5FB-AAC5-4CCC-A757-3EE183AC8B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010AB5FB-AAC5-4CCC-A757-3EE183AC8B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010AB5FB-AAC5-4CCC-A757-3EE183AC8B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010AB5FB-AAC5-4CCC-A757-3EE183AC8B50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E023613-07D8-4C69-BBF9-77982E9449E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E023613-07D8-4C69-BBF9-77982E9449E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E023613-07D8-4C69-BBF9-77982E9449E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E023613-07D8-4C69-BBF9-77982E9449E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,41 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+﻿using System.IO;
 using StudentManager.Domain;
 
 namespace StudentManager.Infrastructure
 {
     public class StudentCsvRepository
     {
+        private readonly string _dataFolder;
+        private readonly string _filePath;
 
-        private readonly List<Student> _students = new();
-        public void Add(Student student) => _students.Add(student);
-        public List<Student> All() => _students;
-
-
-
-        public void checkCreate()
+        public StudentCsvRepository()
         {
-            string folder = @"C:\Users\Trist\Desktop\Graduaat\C-Advanced\StudentManagerUI\StudentManagerUI\StudentManager.Infrastructure\Data";//specifieke route meegeven
-            string filePath = Path.Combine(folder, "data.txt");
+            // ✅ Één consistent pad voor alles
+            _dataFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+            _filePath = Path.Combine(_dataFolder, "data.txt");
 
-            // Maak de Data-map aan als die nog niet bestaat
-            if (!Directory.Exists(folder))
-                Directory.CreateDirectory(folder);
+            // ✅ Map aanmaken als die niet bestaat
+            if (!Directory.Exists(_dataFolder))
+                Directory.CreateDirectory(_dataFolder);
 
-           
-
-            File.Create(filePath).Close();
+            // ✅ Bestand aanmaken ALLEEN als het nog NIET bestaat
+            if (!File.Exists(_filePath))
+                File.Create(_filePath).Close();
         }
 
-        public List<Student> alles()
+        // ✅ Leest ALLES uit het bestand (StreamReader)
+        public List<Student> All()
         {
             List<Student> students = new List<Student>();
 
-            using (StreamReader reader = new StreamReader("data.csv"))
+            using (StreamReader reader = new StreamReader(_filePath))
             {
                 while (!reader.EndOfStream)
                 {
@@ -45,35 +38,23 @@ namespace StudentManager.Infrastructure
                         continue;
 
                     string[] values = line.Split(';');
-
                     Student student = new Student(values[0], values[1]);
-
                     students.Add(student);
                 }
             }
 
-            return students;  //return type
-
-
+            return students;
         }
 
-        public void add(Student student)
+        // ✅ Voegt toe aan het BESTAND (StreamWriter met append)
+        public void Add(Student student)
         {
             string line = $"{student.FirstName};{student.LastName}";
 
-            // StreamWriter met append: true → overschrijft NIET
-            using (StreamWriter writer = new StreamWriter("data.csv", append: true))
+            using (StreamWriter writer = new StreamWriter(_filePath, append: true))
             {
                 writer.WriteLine(line);
             }
         }
-
-
-
-
-
-
     }
 }
-
-

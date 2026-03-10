@@ -29,7 +29,6 @@ namespace StudentManager.UI
             InitializeComponent();
 
             StudentCsvRepository repository = new StudentCsvRepository();
-            repository.checkCreate();  //DIT ONTBREEKTE VOOR FILE AAN TE MAKEN
 
             _service = new StudentService(repository);
         }

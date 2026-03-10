@@ -29,7 +29,6 @@ namespace StudentManager.UI
             InitializeComponent();
 
             StudentCsvRepository repository = new StudentCsvRepository();
-
             _service = new StudentService(repository);
         }
 

@@ -10,8 +10,4 @@
     <ProjectReference Include="..\StudentManager.Domain\StudentManager.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>

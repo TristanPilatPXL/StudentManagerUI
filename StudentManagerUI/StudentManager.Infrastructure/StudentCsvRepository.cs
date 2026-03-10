@@ -10,20 +10,20 @@ namespace StudentManager.Infrastructure
 
         public StudentCsvRepository()
         {
-            // ✅ Één consistent pad voor alles
+            //pad voor alles
             _dataFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
-            _filePath = Path.Combine(_dataFolder, "data.txt");
+            _filePath = Path.Combine(_dataFolder, "data.csv");
 
-            // ✅ Map aanmaken als die niet bestaat
+            //Map aanmaken als die niet bestaat
             if (!Directory.Exists(_dataFolder))
                 Directory.CreateDirectory(_dataFolder);
 
-            // ✅ Bestand aanmaken ALLEEN als het nog NIET bestaat
+            //bestand aanmaken ALLEEN als het nog NIET bestaat
             if (!File.Exists(_filePath))
                 File.Create(_filePath).Close();
         }
 
-        // ✅ Leest ALLES uit het bestand (StreamReader)
+        //Leest ALLES uit het bestand (StreamReader)
         public List<Student> All()
         {
             List<Student> students = new List<Student>();
@@ -46,7 +46,7 @@ namespace StudentManager.Infrastructure
             return students;
         }
 
-        // ✅ Voegt toe aan het BESTAND (StreamWriter met append)
+        //Voegt toe aan het BESTAND (StreamWriter met append)
         public void Add(Student student)
         {
             string line = $"{student.FirstName};{student.LastName}";
